@@ -10,5 +10,11 @@ public class Main {
             System.out.print(numbers[i] + " ");
         }
         System.out.println();
+        System.out.println("Парні числа масиву:");
+        for (int num : numbers) {
+            if (num % 2 == 0) { // Якщо число парне
+                System.out.print(num + " ");
+            }
+        }
     }
 }
