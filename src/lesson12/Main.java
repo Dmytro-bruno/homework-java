@@ -30,6 +30,20 @@ public class Main {
             System.out.println("69 - Завершити програму");
             System.out.print("Виберіть опцію: ");
             int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Парні елементи масиву:");
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < m; j++) {
+                            if (numbers[i][j] % 2 == 0) { // Якщо число парне
+                                System.out.print(numbers[i][j] + " ");
+                            }
+                        }
+                    }
+                    System.out.println();
+                    break;
+            }
         }
 
     }
