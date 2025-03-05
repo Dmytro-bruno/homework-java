@@ -11,5 +11,17 @@ public class Main {
         int n = scanner.nextInt();
         System.out.print("Введіть кількість стовпців (m): ");
         int m = scanner.nextInt();
+
+        // Створюємо двовимірний масив
+        int[][] numbers = new int[n][m];
+
+        // Заповнюємо масив даними користувача
+        System.out.println("Введіть елементи масиву:");
+        for (int i = 0; i < n; i++) { // Тут перебираємо рядки
+            for (int j = 0; j < m; j++) { // Тут перебираємо стовпці
+                numbers[i][j] = scanner.nextInt(); // Зчитуємо елемент у масив
+            }
+        }
+
     }
 }
