@@ -66,6 +66,11 @@ public class Main {
                     System.out.println("Найбільший елемент у масиві: " + max);
                     break;
 
+                case 69:
+                    System.out.println("Програма завершена.");
+                    scanner.close(); // Закриваємо Scanner
+                    return; // Вихід з програми
+
             }
         }
 
