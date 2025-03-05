@@ -22,6 +22,15 @@ public class Main {
                 numbers[i][j] = scanner.nextInt(); // Зчитуємо елемент у масив
             }
         }
+        while (true) { // Нескінченний цикл для меню
+            System.out.println("Меню:");
+            System.out.println("1 - Відобразити всі парні елементи");
+            System.out.println("2 - Порахувати суму елементів");
+            System.out.println("3 - Знайти найбільший елемент");
+            System.out.println("69 - Завершити програму");
+            System.out.print("Виберіть опцію: ");
+            int choice = scanner.nextInt();
+        }
 
     }
 }
