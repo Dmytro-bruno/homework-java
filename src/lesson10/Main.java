@@ -6,8 +6,8 @@ public class Main {
         int[] numbers = {66, 22, 33, 44, 55, 69, 77, 88, 105}; // Масив чисел
 
         System.out.println("Всі числа масиву:");
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + " ");
+        for (int number : numbers) {
+            System.out.print(number + " ");
         }
         System.out.println();
         System.out.println("Парні числа масиву:");
