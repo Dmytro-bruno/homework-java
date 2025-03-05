@@ -43,6 +43,29 @@ public class Main {
                     }
                     System.out.println();
                     break;
+
+                case 2:
+                    int sum = 0;
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < m; j++) {
+                            sum += numbers[i][j]; // Додаємо кожен елемент до суми
+                        }
+                    }
+                    System.out.println("Сума всіх елементів: " + sum);
+                    break;
+
+                case 3:
+                    int max = numbers[0][0]; // Починаємо з першого елемента
+                    for (int i = 0; i < n; i++) {
+                        for (int j = 0; j < m; j++) {
+                            if (numbers[i][j] > max) { // Якщо знайшли більше число
+                                max = numbers[i][j];
+                            }
+                        }
+                    }
+                    System.out.println("Найбільший елемент у масиві: " + max);
+                    break;
+
             }
         }
 
