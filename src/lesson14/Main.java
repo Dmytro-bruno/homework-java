@@ -62,8 +62,34 @@ public class Main {
                 }
             }
 
-            System.out.print("Колір луски: ");
-            String scaleColor = scanner.nextLine();  // Введення кольору луски дракона
+            // Масив кольорів, які може вибрати користувач
+            String[] colors = {"Червоний", "Зелений", "Синій"};
+
+            int colorChoice = 0;  // Змінна для збереження вибору користувача
+
+// Цикл, який працює, поки користувач не введе правильне число (1, 2 або 3)
+            while (true) {
+                // Виводимо меню для вибору кольору
+                System.out.println("Оберіть колір луски:");
+                System.out.println("1 - Червоний 🔴");
+                System.out.println("2 - Зелений 🟢");
+                System.out.println("3 - Синій 🔵");
+                System.out.print("Ваш вибір: ");
+
+                try {
+                    colorChoice = scanner.nextInt();  // Користувач вводить число
+                    scanner.nextLine();  // Очищаємо буфер введення після `nextInt()`
+
+                    if (colorChoice >= 1 && colorChoice <= 3) break;  // Якщо число в межах 1-3, виходимо з циклу
+                    else System.out.println("Помилка! Виберіть число від 1 до 3.");  // Якщо число не 1-3, просимо повторити
+                } catch (InputMismatchException e) {
+                    System.out.println("Помилка! Виберіть число від 1 до 3.");  // Якщо ввели не число (наприклад, текст), просимо повторити
+                    scanner.nextLine();  // Очищаємо буфер після помилки
+                }
+            }
+
+// Отримуємо колір із масиву `colors` за вибраним номером
+            String scaleColor = colors[colorChoice - 1];
 
             dragons[i] = new Dragon(name, age, weight, scaleColor);  // Створюємо нового дракона і зберігаємо в масиві
         }
