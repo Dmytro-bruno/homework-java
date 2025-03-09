@@ -73,6 +73,7 @@ public class Main {
         for (Dragon dragon : dragons) {  // Перебираємо всіх драконів у масиві
             dragon.displayDragonInfo();  // Викликаємо метод для виведення інформації про дракона
             System.out.println("ІМТ: " + DragonBMI.calculateBMI(dragon.getWeight(), dragon.getAge()));  // Обчислюємо і виводимо ІМТ
+            dragon.speak();  // Дракон висловлюється щодо свого ІМТ
             System.out.println("---------------------------");  // Додаємо роздільник між драконами
         }
 
