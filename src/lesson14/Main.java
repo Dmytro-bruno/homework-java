@@ -95,12 +95,11 @@ public class Main {
         }
 
         // Виводимо інформацію про всіх створених драконів
-        System.out.println("\n🔥 Інформація про створених драконів 🔥");
-        for (Dragon dragon : dragons) {  // Перебираємо всіх драконів у масиві
-            dragon.displayDragonInfo();  // Викликаємо метод для виведення інформації про дракона
-            System.out.println("ІМТ: " + DragonBMI.calculateBMI(dragon.getWeight(), dragon.getAge()));  // Обчислюємо і виводимо ІМТ
-            dragon.speak();  // Дракон висловлюється щодо свого ІМТ
-            System.out.println("---------------------------");  // Додаємо роздільник між драконами
+        System.out.println("\n🔥 Інформація про створених драконів 🔥");  // Виводимо заголовок
+        for (Dragon dragon : dragons) {  // Цикл для перебору всіх створених драконів
+            System.out.println(dragon);  // Автоматично викликає метод toString() для кожного дракона
+            System.out.println("ІМТ: " + DragonBMI.calculateBMI(dragon.getWeight(), dragon.getAge()));  // Обчислюємо ІМТ дракона
+            dragon.speak();  // Викликаємо метод, щоб дракон щось сказав
         }
         // Додаємо можливість завершити програму або створити нових драконів
         while (true) {
