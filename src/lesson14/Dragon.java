@@ -11,9 +11,24 @@ public class Dragon extends DragonAttributes {  // Клас Dragon успадк�
 
     // Метод для виводу інформації про дракона
     public void displayDragonInfo() {
-        System.out.println("Дракон " + getName() + " 🔥");
-        System.out.println("Вік: " + getAge() + " років");
-        System.out.println("Вага: " + getWeight() + " кг");
-        System.out.println("Колір луски: " + getScaleColor());
+        System.out.println("Дракон " + getName() + " 🔥");  // Виводимо ім'я дракона зі смайликом вогню
+        System.out.println("Вік: " + getAge() + " років");  // Вік дракона
+        System.out.println("Вага: " + getWeight() + " кг");  // Вага дракона
+        System.out.println("Колір луски: " + getScaleColor());  // Колір луски
+    }
+
+    // Метод, який змушує дракона щось сказати залежно від його BMI
+    public void speak() {
+        double bmi = DragonBMI.calculateBMI(getWeight(), getAge());  // Розраховуємо ІМТ дракона
+
+        System.out.print(getName() + " каже: ");  // Дракон починає говорити
+
+        if (bmi < 15) {
+            System.out.println("Я голодний! 🔥");  // Якщо низький BMI
+        } else if (bmi >= 15 && bmi <= 25) {
+            System.out.println("Я у чудовій формі! 🐉");  // Якщо нормальний BMI
+        } else {
+            System.out.println("Я переїв! 🤰🔥");  // Якщо високий BMI
+        }
     }
 }
