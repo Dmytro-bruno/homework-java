@@ -104,20 +104,31 @@ public class Main {
         }
         // Додаємо можливість завершити програму або створити нових драконів
         while (true) {
-            System.out.print("\nНатисніть Enter, щоб завершити програму або введіть 'ще', щоб створити нових драконів: ");
-            String input = scanner.nextLine().trim().toLowerCase();  // Зчитуємо введене слово і переводимо в нижній регістр
+            System.out.println("\n📌 Оберіть дію:");
+            System.out.println("1 - Вийти з програми ❌");
+            System.out.println("2 - Створити ще дракона 🐉");
+            System.out.print("Ваш вибір: ");
 
-            if (input.equals("ще")) {
-                main(args);  // Перезапускаємо програму
-                return;  // Виходимо з поточного виконання
-            } else {
-                // Перед завершенням програми дракони прощаються
-                System.out.println("\n😢 Дракончики кажуть: ");
-                for (Dragon dragon : dragons) {
-                    dragon.sayGoodbye();  // Викликаємо метод прощання
+            try {
+                int choice = scanner.nextInt();  // Зчитуємо вибір користувача
+                scanner.nextLine();  // Очищаємо буфер після введення числа
+
+                if (choice == 1) {  // Якщо користувач вибрав вихід
+                    System.out.println("\n😢 Дракончики кажуть: ");
+                    for (Dragon dragon : dragons) {
+                        dragon.sayGoodbye();  // Дракони прощаються
+                    }
+                    System.out.println("\nПрограма завершена.");
+                    break;  // Вихід з циклу → завершення програми
+                } else if (choice == 2) {  // Якщо користувач хоче створити ще дракона
+                    main(args);  // Перезапускаємо програму
+                    return;  // Вихід із поточного виконання
+                } else {
+                    System.out.println("Помилка! Введіть 1 або 2.");  // Якщо введено не 1 і не 2
                 }
-                System.out.println("\nПрограма завершена.");
-                break;  // Завершуємо цикл і виходимо з програми
+            } catch (InputMismatchException e) {  // Ловимо помилки, якщо введено текст або інші символи
+                System.out.println("Помилка! Введіть число 1 або 2.");
+                scanner.nextLine();  // Очищаємо буфер, щоб уникнути нескінченного циклу
             }
         }
         scanner.close();  // Закриваємо Scanner після використання
