@@ -18,6 +18,9 @@ public class Dragon extends DragonAttributes {
                 "---------------------------";
     }
 
+    /**
+     * Дракон вимовляє фразу, яка залежить від його BMI.
+     */
     public void speak() {
         double bmi = DragonBMI.calculateBMI(getWeight(), getAge());
 
@@ -32,6 +35,9 @@ public class Dragon extends DragonAttributes {
         }
     }
 
+    /**
+     * Дракон прощається.
+     */
     public void sayGoodbye() {
         System.out.println(getName() + " каже: Прощавай, ми будемо сумувати. 😢🐉");
     }
