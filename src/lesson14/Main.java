@@ -1,27 +1,27 @@
-package lesson14;  // Визначаємо, що клас знаходиться в пакеті lesson14
+package lesson14;
 
-import java.util.InputMismatchException;  // Імпортуємо клас для обробки помилок введення
-import java.util.Scanner;  // Імпортуємо Scanner для введення даних з клавіатури
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);  // Створюємо об'єкт Scanner для введення даних користувачем
+        Scanner scanner = new Scanner(System.in);
 
-        int dragonCount = 0;  // Змінна для збереження кількості драконів
-        boolean validInput = false;  // Логічна змінна для перевірки коректності введення
+        int dragonCount = 0;
+        boolean validInput = false;
 
-        // Цикл, який повторюється, поки користувач не введе коректне число драконів
+
         while (!validInput) {
             try {
-                System.out.print("Скільки драконів створити? ");  // Запитуємо кількість драконів
-                dragonCount = scanner.nextInt();  // Зчитуємо введене число
-                scanner.nextLine();  // Очищаємо буфер після введення числа (щоб уникнути помилок)
+                System.out.print("Скільки драконів створити? ");
+                dragonCount = scanner.nextInt();
+                scanner.nextLine();
 
-                if (dragonCount > 0) validInput = true;  // Якщо число більше 0, завершуємо цикл
-                else System.out.println("Введіть число більше 0!");  // Якщо число 0 або менше, просимо ввести ще раз
-            } catch (InputMismatchException e) {  // Якщо введено некоректні дані (наприклад, текст замість числа)
-                System.out.println("Помилка! Введіть ціле число.");  // Виводимо повідомлення про помилку
-                scanner.nextLine();  // Очищаємо буфер введення
+                if (dragonCount > 0) validInput = true;
+                else System.out.println("Введіть число більше 0!");
+            } catch (InputMismatchException e) {
+                System.out.println("Помилка! Введіть ціле число.");
+                scanner.nextLine();
             }
         }
 
