@@ -5,13 +5,13 @@ public class Dragon extends DragonAttributes {
         super();
     }
 
-    public Dragon(String name, int age, double weight, String scaleColor) {
-        super(name, age, weight, scaleColor);
+    public Dragon(String name, int age, double weight, String scaleColor, DragonType type) {
+        super(name, age, weight, scaleColor, type);
     }
 
     @Override
     public String toString() {
-        return "🐉 Дракон " + getName() + " 🔥\n" +
+        return "🐉 Дракон " + getName() + " (" + getType() + ") 🔥\n" +
                 "Вік: " + getAge() + " років\n" +
                 "Вага: " + getWeight() + " кг\n" +
                 "Колір луски: " + getScaleColor() + "\n" +
@@ -33,6 +33,6 @@ public class Dragon extends DragonAttributes {
     }
 
     public void sayGoodbye() {
-        System.out.println(getName() + " каже: Прощавай, ми будемо сумувати... 😢🐉");
+        System.out.println(getName() + " каже: Прощавай, ми будемо сумувати. 😢🐉");
     }
 }
