@@ -51,7 +51,9 @@ public class Main {
         System.out.println("\n🔹 Створені дракони 🔹");
         for (Dragon dragon : dragons) {
             System.out.println(dragon);
-            dragon.speak(); // Додаємо виклик speak()
+            dragon.speak();
+            System.out.println(dragon.getName() + ": Мій індекс маси тіла - " +
+                    String.format("%.2f", DragonBMI.calculateBMI(dragon.getWeight(), dragon.getAge())) + " 🏋️‍♂️\n");
         }
 
         scanner.close();
