@@ -1,39 +1,37 @@
-package lesson14;  // Визначаємо, що клас знаходиться в пакеті lesson14
+package lesson14;
 
-public class Dragon extends DragonAttributes {  // Клас Dragon успадковує DragonAttributes
+public class Dragon extends DragonAttributes {
     public Dragon() {
-        super();  // Викликає конструктор без параметрів з батьківського класу
+        super();
     }
 
     public Dragon(String name, int age, double weight, String scaleColor) {
-        super(name, age, weight, scaleColor);  // Викликає конструктор з параметрами з батьківського класу
+        super(name, age, weight, scaleColor);
     }
 
-    // Метод для виводу інформації про дракона
-    @Override  // Перевизначаємо стандартний метод toString()
+    @Override
     public String toString() {
-        return "🐉 Дракон " + getName() + " 🔥\n" +  // Виводимо ім'я дракона та смайлик вогню
-                "Вік: " + getAge() + " років\n" +  // Додаємо вік дракона
-                "Вага: " + getWeight() + " кг\n" +  // Додаємо вагу дракона
-                "Колір луски: " + getScaleColor() + "\n" +  // Додаємо колір луски дракона
-                "---------------------------";  // Додаємо роздільник для красивого виводу
+        return "🐉 Дракон " + getName() + " 🔥\n" +
+                "Вік: " + getAge() + " років\n" +
+                "Вага: " + getWeight() + " кг\n" +
+                "Колір луски: " + getScaleColor() + "\n" +
+                "---------------------------";
     }
 
-    // Метод, який змушує дракона щось сказати залежно від його BMI
     public void speak() {
-        double bmi = DragonBMI.calculateBMI(getWeight(), getAge());  // Розраховуємо ІМТ дракона
+        double bmi = DragonBMI.calculateBMI(getWeight(), getAge());
 
-        System.out.print(getName() + " каже: ");  // Дракон починає говорити
+        System.out.print(getName() + " каже: ");
 
         if (bmi < 15) {
-            System.out.println("Я голодний! 🔥");  // Якщо низький BMI
+            System.out.println("Я голодний! 🔥");
         } else if (bmi >= 15 && bmi <= 25) {
-            System.out.println("Я у чудовій формі! 🐉");  // Якщо нормальний BMI
+            System.out.println("Я у чудовій формі! 🐉");
         } else {
-            System.out.println("Я переїв! 🤰🔥");  // Якщо високий BMI
+            System.out.println("Я переїв! 🤰🔥");
         }
     }
-    // Метод, який викликається при завершенні програми
+
     public void sayGoodbye() {
         System.out.println(getName() + " каже: Прощавай, ми будемо сумувати... 😢🐉");
     }
