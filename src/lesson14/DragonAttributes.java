@@ -5,49 +5,34 @@ public class DragonAttributes {
     private int age;
     private double weight;
     private String scaleColor;
+    private DragonType type; // Додаємо тип дракона
 
     public DragonAttributes() {
-        System.out.println("Створено невідомого дракона");
+        this.name = "Невідомий";
+        this.age = 0;
+        this.weight = 0.0;
+        this.scaleColor = "Невідомий";
+        this.type = DragonType.FIRE; // Тип за замовчуванням
     }
 
-    public DragonAttributes(String name, int age, double weight, String scaleColor) {
+    public DragonAttributes(String name, int age, double weight, String scaleColor, DragonType type) {
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.scaleColor = scaleColor;
-        System.out.println("Створено повноцінного дракона");
+        this.type = type;
     }
 
     // Геттери та сеттери
-    public String getName() {
-        return name;  // Повертає ім'я дракона
-    }
+    public String getName() { return name; }
+    public int getAge() { return age; }
+    public double getWeight() { return weight; }
+    public String getScaleColor() { return scaleColor; }
+    public DragonType getType() { return type; }
 
-    public void setName(String name) {
-        this.name = name;  // Встановлює ім'я дракона
-    }
-
-    public int getAge() {
-        return age;  // Повертає вік дракона
-    }
-
-    public void setAge(int age) {
-        this.age = age;  // Встановлює вік дракона
-    }
-
-    public double getWeight() {
-        return weight;  // Повертає вагу дракона
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;  // Встановлює вагу дракона
-    }
-
-    public String getScaleColor() {
-        return scaleColor;  // Повертає колір луски дракона
-    }
-
-    public void setScaleColor(String scaleColor) {
-        this.scaleColor = scaleColor;  // Встановлює колір луски дракона
-    }
+    public void setName(String name) { this.name = name; }
+    public void setAge(int age) { this.age = age; }
+    public void setWeight(double weight) { this.weight = weight; }
+    public void setScaleColor(String scaleColor) { this.scaleColor = scaleColor; }
+    public void setType(DragonType type) { this.type = type; }
 }
