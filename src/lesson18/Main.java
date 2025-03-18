@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         // Створюємо об'єкт автомобіля
-        Automobile car = new Automobile(50.0, 7.5, LocalDate.of(2025, 12, 1));
+        Automobile car = new Automobile(0, 7.5, LocalDate.of(2025, 12, 1));
 
         // Виводимо інформацію про автомобіль
         System.out.println("Інформація про авто: " + car);
