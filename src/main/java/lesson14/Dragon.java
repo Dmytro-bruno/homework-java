@@ -49,7 +49,11 @@ public class Dragon extends DragonAttributes {
         // Приведення типу
         Dragon dragon = (Dragon) o;
 
-        // Логіка порівняння буде в наступному кроці
-        return false;
+        // Порівнюємо всі важливі поля
+        return getAge() == dragon.getAge() && // Порівнюємо вік
+                Double.compare(getWeight(), dragon.getWeight()) == 0 && // Порівнюємо вагу
+                getName().equals(dragon.getName()) && // Порівнюємо ім’я
+                getScaleColor().equals(dragon.getScaleColor()) && // Порівнюємо колір луски
+                getType() == dragon.getType(); // Порівнюємо тип дракона
     }
 }
