@@ -1,5 +1,7 @@
 package lesson14;
 
+import java.util.Objects; // Імпортуємо клас для генерації hashCode
+
 public class Dragon extends DragonAttributes {
     public Dragon() {
         super();
@@ -55,5 +57,11 @@ public class Dragon extends DragonAttributes {
                 getName().equals(dragon.getName()) && // Порівнюємо ім’я
                 getScaleColor().equals(dragon.getScaleColor()) && // Порівнюємо колір луски
                 getType() == dragon.getType(); // Порівнюємо тип дракона
+    }
+
+    @Override
+    public int hashCode() {
+        // Генеруємо hashCode на основі тих же полів, що в equals()
+        return Objects.hash(getName(), getAge(), getWeight(), getScaleColor(), getType());
     }
 }
