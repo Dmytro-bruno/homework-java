@@ -37,4 +37,19 @@ public class Dragon extends DragonAttributes {
     public void sayGoodbye() {
         System.out.println(getName() + " каже: Прощавай, ми будемо сумувати. 😢🐉");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        // Перевірка на однакове посилання
+        if (this == o) return true;
+
+        // Перевірка типу та null
+        if (o == null || getClass() != o.getClass()) return false;
+
+        // Приведення типу
+        Dragon dragon = (Dragon) o;
+
+        // Логіка порівняння буде в наступному кроці
+        return false;
+    }
 }
