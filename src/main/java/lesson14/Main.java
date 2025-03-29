@@ -55,6 +55,25 @@ public class Main {
             System.out.println(dragon.getName() + ": Мій індекс маси тіла - " +
                     String.format("%.2f", DragonBMI.calculateBMI(dragon.getWeight(), dragon.getAge())) + " 🏋️‍♂️\n");
         }
+// ✅ Перевірка equals() та hashCode()
+        System.out.println("🔍 Перевірка equals() і hashCode():");
+
+        if (count >= 2) {
+            Dragon dragon1 = dragons[0]; // Перший дракон
+            Dragon dragon2 = dragons[1]; // Другий дракон
+
+            // Перевіряємо, чи об'єкти рівні
+            boolean areEqual = dragon1.equals(dragon2);
+
+            // Перевіряємо, чи хеш-коди збігаються
+            boolean sameHash = dragon1.hashCode() == dragon2.hashCode();
+
+            // 🔎 Результати
+            System.out.println("Чи dragon1 дорівнює dragon2? → " + (areEqual ? "✅ Так" : "❌ Ні"));
+            System.out.println("Чи збігаються їхні hashCode()? → " + (sameHash ? "✅ Так" : "❌ Ні"));
+        } else {
+            System.out.println("❗ Створіть принаймні 2 дракони для порівняння.");
+        }
 
         scanner.close();
     }
