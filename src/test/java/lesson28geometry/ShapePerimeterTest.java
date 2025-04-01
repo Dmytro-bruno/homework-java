@@ -29,7 +29,7 @@ public class ShapePerimeterTest {
 
     @Test
     public void testAbstractShapePerimeter() {
-        Shape shape = new Shape(); // Абстрактна фігура — повертає 0
-        assertEquals(0.0, shape.calculatePerimeter(), "Периметр абстрактної фігури має бути 0");
+        Shape shape = new Circle(0); // Circle з радіусом 0 — периметр 0
+        assertEquals(0.0, shape.calculatePerimeter(), 0.0001, "Периметр має бути 0 для нульового радіуса");
     }
 }

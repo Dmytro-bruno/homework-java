@@ -29,7 +29,7 @@ public class ShapeAreaTest {
 
     @Test
     public void testAbstractShapeArea() {
-        Shape shape = new Shape(); // Абстрактна фігура — повертає 0
-        assertEquals(0.0, shape.calculateArea(), "Абстрактна фігура повинна мати площу 0");
+        Shape shape = new Circle(0); // Абстрактна перевірка через Circle з радіусом 0
+        assertEquals(0.0, shape.calculateArea(), "Фігура з нульовими параметрами має мати площу 0");
     }
 }
