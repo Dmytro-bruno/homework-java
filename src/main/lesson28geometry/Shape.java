@@ -3,28 +3,20 @@ package lesson28geometry;
 /**
  * Абстрактний клас Shape — базовий для всіх геометричних фігур
  */
-public class Shape {
+public abstract class Shape {
 
     /**
-     * Метод обчислення площі — заглушка для дочірніх класів
+     * Абстрактний метод для обчислення площі
      */
-    public double calculateArea() {
-        System.out.println("Площа не визначена для абстрактної фігури.");
-        return 0;
-    }
+    public abstract double calculateArea(); // 🔹 метод, який обов’язково перевизначається
 
     /**
-     * Метод обчислення периметра — заглушка
+     * Абстрактний метод для обчислення периметра
      */
-    public double calculatePerimeter() {
-        System.out.println("Периметр не визначений для абстрактної фігури.");
-        return 0;
-    }
+    public abstract double calculatePerimeter(); // 🔹 обов'язковий метод для фігур
 
     /**
      * Метод для виводу інформації про фігуру
      */
-    public void displayInfo() {
-        System.out.println("Це абстрактна фігура. Немає конкретних параметрів.");
-    }
+    public abstract void displayInfo(); // 🔹 кожна фігура має реалізувати своє відображення
 }
