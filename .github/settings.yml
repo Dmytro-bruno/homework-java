@@ -1,0 +1,11 @@
+# 🔐 Автоматичний захист основної гілки
+branches:
+  - name: base
+    protection:
+      required_status_checks:
+        strict: true
+        contexts: []
+      enforce_admins: true
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+      restrictions: null
