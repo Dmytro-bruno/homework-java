@@ -3,6 +3,10 @@ package lesson28geometry;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import lesson28geometry.Circle;
+import lesson28geometry.Rectangle;
+import lesson28geometry.Square;
+import lesson28geometry.Shape;
 /**
  * Тести для перевірки обчислення периметрів геометричних фігур
  */
