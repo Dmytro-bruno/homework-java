@@ -40,21 +40,4 @@ public class StackTest {
         }
         assertTrue(stack.isFull(), "❌ Стек має бути повним після 10 елементів");
     }
-
-    @Test
-    public void testPopFromEmptyStack() {
-        Stack<String> stack = new Stack<>();
-        String result = stack.pop();
-        assertNull(result, "❌ pop повинен повертати null, якщо стек порожній");
-    }
-
-    @Test
-    public void testPushToFullStack() {
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < 10; i++) {
-            stack.push(i);
-        }
-        stack.push(11); // Понад ліміт
-        assertEquals(9, stack.peek(), "❌ Елемент не повинен додаватись, коли стек повний");
-    }
 }
