@@ -1,20 +1,20 @@
 package lesson30stack;
-
+import java.util.Optional; // Імпортуємо Optional
 /**
  * Клас Stack — реалізація структури даних стек (LIFO)
  * @param <E> тип елементів у стеку
  */
 public class Stack<E> implements Stackable<E> {
-    private static final int DEFAULT_CAPACITY = 10; // 🔹 Розмір стеку за замовчуванням
-    private Object[] elements; // 🔹 Масив для збереження елементів
-    private int top; // 🔹 Індекс вершини стеку (-1 означає порожній стек)
+    private static final int DEFAULT_CAPACITY = 10; // Розмір стеку за замовчуванням
+    private Object[] elements; // Масив для збереження елементів
+    private int top; // Індекс вершини стеку (-1 означає порожній стек)
 
     /**
      * Конструктор за замовчуванням
      */
     public Stack() {
-        elements = new Object[DEFAULT_CAPACITY]; // 🔹 Створюємо масив фіксованого розміру
-        top = -1; // 🔹 Стек порожній на старті
+        elements = new Object[DEFAULT_CAPACITY]; // Створюємо масив фіксованого розміру
+        top = -1; // Стек порожній на старті
     }
 
     /**
@@ -43,10 +43,10 @@ public class Stack<E> implements Stackable<E> {
     @Override
     public void push(E item) {
         if (isFull()) {
-            // 🔥 Кидаємо виняток, якщо стек заповнений
+            // Кидаємо виняток, якщо стек заповнений
             throw new StackOverflowException("Стек переповнений. Неможливо додати: " + item);
         }
-        elements[++top] = item; // 🔹 Додаємо елемент до вершини стеку
+        elements[++top] = item; // Додаємо елемент до вершини стеку
     }
 
     /**
@@ -58,10 +58,10 @@ public class Stack<E> implements Stackable<E> {
     @SuppressWarnings("unchecked")
     public E pop() {
         if (isEmpty()) {
-            // 🔥 Кидаємо виняток, якщо стек порожній
+            // Кидаємо виняток, якщо стек порожній
             throw new StackUnderflowException("Стек порожній. Немає елементів для видалення.");
         }
-        return (E) elements[top--]; // 🔹 Повертаємо верхній елемент і зменшуємо top
+        return (E) elements[top--]; // Повертаємо верхній елемент і зменшуємо top
     }
 
     /**
@@ -72,9 +72,19 @@ public class Stack<E> implements Stackable<E> {
     @SuppressWarnings("unchecked")
     public E peek() {
         if (isEmpty()) {
-            System.out.println("⚠️ Стек порожній. Немає елементів для перегляду.");
+            System.out.println("⚠Стек порожній. Немає елементів для перегляду.");
             return null;
         }
-        return (E) elements[top]; // 🔹 Повертаємо елемент без змін
+        return (E) elements[top]; // Повертаємо елемент без змін
+    }
+    /**
+     * Метод, що повертає Optional з елементом, якщо стек не порожній
+     * @return Optional з елементом, або Optional.empty(), якщо стек порожній
+     */
+    public Optional<E> popOptional() {
+        if (isEmpty()) {
+            return Optional.empty(); // Повертаємо порожній результат
+        }
+        return Optional.of(pop()); // Обгортаємо результат у Optional
     }
 }
