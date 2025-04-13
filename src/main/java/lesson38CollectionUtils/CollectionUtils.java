@@ -24,4 +24,19 @@ public class CollectionUtils {
         }
         return result; // Повертаємо новий список
     }
+    /**
+     * Метод об'єднує дві мапи: якщо ключи збігаються — додає значення.
+     * @param map1 перша мапа
+     * @param map2 друга мапа
+     * @return нова об'єднана мапа
+     */
+    public static Map<String, Integer> mergeMaps(Map<String, Integer> map1, Map<String, Integer> map2) {
+        Map<String, Integer> result = new HashMap<>(map1); // Копіюємо першу мапу
+
+        for (Map.Entry<String, Integer> entry : map2.entrySet()) { // Перебираємо другу мапу
+            result.merge(entry.getKey(), entry.getValue(), Integer::sum); // Якщо ключ є — додаємо, інакше просто вставляємо
+        }
+
+        return result; // Повертаємо результат
+    }
 }
