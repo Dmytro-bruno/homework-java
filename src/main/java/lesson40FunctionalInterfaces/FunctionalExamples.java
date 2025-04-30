@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 /**
  * Клас з прикладами використання Predicate та Supplier.
@@ -60,6 +61,30 @@ public class FunctionalExamples {
     public static final Function<Double, Long> roundDouble = d -> {
         // Використовуємо стандартне математичне округлення
         return Math.round(d);
+    };
+    /**
+     * UnaryOperator, який обчислює n-те число Фібоначчі.
+     */
+    public static final UnaryOperator<Integer> fibonacci = n -> {
+        // Якщо n < 0 — повертаємо -1 як індикатор помилки
+        if (n < 0) return -1;
+
+        // Перші два числа Фібоначчі
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+
+        // Ітеративне обчислення числа Фібоначчі
+        int a = 0; // n = 0
+        int b = 1; // n = 1
+        int result = 1;
+
+        for (int i = 2; i <= n; i++) {
+            result = a + b; // Обчислюємо наступне число
+            a = b;           // Зсуваємо попередні значення
+            b = result;
+        }
+
+        return result; // Повертаємо n-те число Фібоначчі
     };
 
 }

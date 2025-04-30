@@ -11,6 +11,9 @@ public class Main {
         FunctionalExamples.printRange.accept(5); // Виведе числа від 0 до 5
         System.out.println("🔢 Округлення 3.7 → " + FunctionalExamples.roundDouble.apply(3.7));
         System.out.println("🔢 Округлення 2.3 → " + FunctionalExamples.roundDouble.apply(2.3));
+        System.out.println("🧮 Фібоначчі(6): " + FunctionalExamples.fibonacci.apply(6));
+        System.out.println("🧮 Фібоначчі(10): " + FunctionalExamples.fibonacci.apply(10));
+
     }
 
 }
