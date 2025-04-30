@@ -19,4 +19,11 @@ class FunctionalExamplesTest {
         assertNotNull(result); // Перевіряємо, що не null
         assertTrue(result.matches("(?i)Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday")); // Має бути день тижня
     }
+    @Test
+    void testRoundDouble() {
+        assertEquals(4L, FunctionalExamples.roundDouble.apply(3.6));
+        assertEquals(2L, FunctionalExamples.roundDouble.apply(2.4));
+        assertEquals(-2L, FunctionalExamples.roundDouble.apply(-1.6));
+    }
+
 }

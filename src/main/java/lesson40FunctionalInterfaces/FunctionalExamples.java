@@ -3,6 +3,8 @@ package lesson40FunctionalInterfaces;
 import java.util.Random;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * Клас з прикладами використання Predicate та Supplier.
@@ -35,4 +37,29 @@ public class FunctionalExamples {
         // Повертаємо день за індексом
         return days[index];
     };
+    /**
+     * Consumer, який виводить числа від 0 до заданого включно.
+     */
+    public static final Consumer<Integer> printRange = n -> {
+        // Перевірка: якщо число менше 0, не виводимо нічого
+        if (n < 0) {
+            System.out.println("❌ Число має бути невід’ємним");
+            return;
+        }
+        // Вивід чисел від 0 до n
+        System.out.print("📈 Числа від 0 до " + n + ": ");
+        for (int i = 0; i <= n; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    };
+
+    /**
+     * Function, яка округляє число типу Double до Long.
+     */
+    public static final Function<Double, Long> roundDouble = d -> {
+        // Використовуємо стандартне математичне округлення
+        return Math.round(d);
+    };
+
 }
