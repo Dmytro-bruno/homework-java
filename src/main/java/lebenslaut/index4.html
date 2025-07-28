@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Дмитро Мовчан – CV</title>
+    <style>
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          margin: 0;
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #f4f4f4;
+        }
+
+        header {
+          background-color: #007bff;
+          color: white;
+          text-align: center;
+          padding: 40px 20px;
+        }
+
+        header h1 {
+          margin: 0;
+          font-size: 36px;
+        }
+
+        header h2 {
+          margin-top: 10px;
+          font-weight: normal;
+        }
+
+        header img {
+        width: 300px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-top: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        nav {
+          background-color: #0056b3;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          padding: 10px 0;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+        }
+
+        nav a {
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        }
+
+        nav a:hover {
+          text-decoration: underline;
+        }
+
+        section {
+          background-color: white;
+          margin: 30px auto;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          max-width: 900px;
+        }
+
+        h3 {
+          margin-top: 0;
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 5px;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 10px;
+        }
+
+        table, th, td {
+          border: 1px solid #ccc;
+        }
+
+        th {
+          background-color: #007bff;
+          color: white;
+        }
+
+        th, td {
+          padding: 10px;
+          text-align: left;
+        }
+
+        ul, ol {
+          padding-left: 20px;
+        }
+
+        a {
+          color: #007bff;
+        }
+
+        footer {
+          text-align: center;
+          padding: 20px;
+          color: #999;
+          font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Дмитро Мовчан</h1>
+    <img src="dmytro.webp" alt="Моє фото">
+    <h2>Python Developer | AI-EdTech Founder</h2>
+    <audio controls>
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+    </audio>
+</header>
+
+<nav>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#experience">Work</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#languages">Languages</a>
+    <a href="#values">Values</a>
+    <a href="#demo">Demo</a>
+</nav>
+
+<section id="contact">
+    <h3>Contact</h3>
+    <ul>
+        <li><strong>Address:</strong> Bahnhofstr. 13, 86453 Dasing, DE</li>
+        <li><strong>Phone:</strong> +49 176 84143837</li>
+        <li><strong>Email:</strong> 0974582854m@gmail.com</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/Dmytro-bruno" target="_blank">Dmytro-bruno</a></li>
+        <li><strong>Project:</strong> <a href="https://bildmind.com" target="_blank">bildmind.com</a></li>
+    </ul>
+</section>
+
+<section id="about">
+    <h3>About Me</h3>
+    <p><strong>Bildmind</strong> — AI-платформа для вивчення мов і соціальної інтеграції. Вона включає GPT-помічника, словникову базу, інтервальне повторення та EdTech-функції.</p>
+</section>
+
+<section id="demo">
+    <h3>Demo Video</h3>
+    <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/VXwrGxRmNPw"
+            title="Демонстрація проєкту Bildmind"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+    </iframe>
+</section>
+
+
+<section id="experience">
+    <h3>Work Experience</h3>
+    <table>
+        <tr><th>Рік</th><th>Посада</th><th>Організація</th></tr>
+        <tr><td>2022–2023</td><td>Волонтер</td><td>Допомога ЗСУ</td></tr>
+        <tr><td>2021</td><td>Головний спеціаліст</td><td>Гайворонська міськрада</td></tr>
+        <tr><td>2020</td><td>Кандидат у депутати</td><td>«За Майбутнє»</td></tr>
+    </table>
+</section>
+
+<section id="education">
+    <h3>Education</h3>
+    <table>
+        <tr><th>Заклад</th><th>Спеціальність</th><th>Роки</th></tr>
+        <tr><td>КНТЕУ</td><td>Менеджмент</td><td>2005–2009</td></tr>
+        <tr><td>ВКЕБ</td><td>Фінанси</td><td>2002–2005</td></tr>
+    </table>
+</section>
+
+<section id="skills">
+    <h3>Skills</h3>
+    <ul>
+        <li>Python, FastAPI, PostgreSQL, Docker</li>
+        <li>GPT-інтеграція, Alembic, REST API</li>
+        <li>MVP-архітектура, EdTech</li>
+    </ul>
+</section>
+
+<section id="languages">
+    <h3>Languages</h3>
+    <ul>
+        <li>Українська — рідна</li>
+        <li>Російська — вільно</li>
+        <li>Німецька — B1</li>
+    </ul>
+</section>
+
+<section id="values">
+    <h3>My Vision</h3>
+    <p>Створити інноваційне освітнє середовище, що поєднує ШІ, мотивацію та соціальний вплив.</p>
+</section>
+
+<footer>
+    &copy; 2025 Дмитро Мовчан | bildmind.com
+</footer>
+
+</body>
+</html>
