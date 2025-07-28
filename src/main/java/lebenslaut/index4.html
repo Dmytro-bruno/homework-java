@@ -19,46 +19,63 @@
           background-color: #007bff;
           color: white;
           text-align: center;
-          padding: 40px 20px;
+          padding: 40px 20px 20px;
         }
 
-        header h1 {
+        .intro {
+          text-align: center;
+          padding: 40px 20px 20px;
+        }
+
+        .intro h1 {
           margin: 0;
-          font-size: 36px;
+          font-size: 32px;
+          font-weight: bold;
         }
 
-        header h2 {
-          margin-top: 10px;
+        .intro img {
+          margin-top: 20px;
+          width: 200px;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          border-radius: 50%;
+          box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .intro h2 {
+          margin-top: 20px;
           font-weight: normal;
+          font-size: 18px;
+          color: white;
         }
 
-        header img {
-        width: 300px;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-top: 20px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        .intro audio {
+          margin-top: 15px;
         }
 
-        nav {
+        .nav-panel {
           background-color: #0056b3;
-          display: flex;
-          justify-content: center;
-          gap: 20px;
-          padding: 10px 0;
-          position: sticky;
-          top: 0;
-          z-index: 1000;
+          padding: 20px;
+          text-align: left;
         }
 
-        nav a {
+        .nav-panel ul {
+          list-style: none;
+          margin: 0;
+          padding: 0 20px;
+        }
+
+        .nav-panel li {
+          margin: 10px 0;
+        }
+
+        .nav-panel a {
           color: white;
           text-decoration: none;
           font-weight: bold;
         }
 
-        nav a:hover {
+        .nav-panel a:hover {
           text-decoration: underline;
         }
 
@@ -81,6 +98,9 @@
           width: 100%;
           border-collapse: collapse;
           margin-top: 10px;
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
         }
 
         table, th, td {
@@ -112,29 +132,63 @@
           font-size: 0.9em;
         }
 
+        @media (max-width: 768px) {
+          .intro img {
+            width: 150px;
+          }
+
+          .intro h1 {
+            font-size: 24px;
+          }
+
+          .intro h2 {
+            font-size: 16px;
+          }
+
+          .nav-panel ul {
+            padding: 0 10px;
+          }
+
+          .nav-panel a {
+            font-size: 16px;
+          }
+
+          section {
+            margin: 15px 10px;
+            padding: 15px;
+          }
+
+          table, th, td {
+            font-size: 14px;
+          }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Дмитро Мовчан</h1>
-    <img src="dmytro.webp" alt="Моє фото">
-    <h2>Python Developer | AI-EdTech Founder</h2>
-    <audio controls>
-        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
-    </audio>
-</header>
+    <div class="intro">
+        <h1>Дмитро Мовчан</h1>
+        <img src="dmytro.webp" alt="Моє фото">
+        <h2>Python Developer | AI-EdTech Founder</h2>
+        <audio controls>
+            <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 
-<nav>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-    <a href="#experience">Work</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#languages">Languages</a>
-    <a href="#values">Values</a>
-    <a href="#demo">Demo</a>
-</nav>
+    <div class="nav-panel">
+        <ul>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Work Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#values">Values</a></li>
+            <li><a href="#demo">Demo</a></li>
+        </ul>
+    </div>
+</header>
 
 <section id="contact">
     <h3>Contact</h3>
@@ -164,7 +218,6 @@
             allowfullscreen>
     </iframe>
 </section>
-
 
 <section id="experience">
     <h3>Work Experience</h3>
@@ -209,7 +262,7 @@
 </section>
 
 <footer>
-    &copy; Тригер 2025 Дмитро Мовчан | bildmind.com
+    &copy; 2025 Дмитро Мовчан | bildmind.com
 </footer>
 
 </body>
