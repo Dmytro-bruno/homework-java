@@ -2,268 +2,209 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Дмитро Мовчан – CV</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        html {
-          scroll-behavior: smooth;
-        }
-
-        body {
-          margin: 0;
-          font-family: 'Segoe UI', sans-serif;
-          background-color: #f4f4f4;
-        }
-
-        header {
-          background-color: #007bff;
-          color: white;
-          text-align: center;
-          padding: 40px 20px 20px;
-        }
-
-        .intro {
-          text-align: center;
-          padding: 40px 20px 20px;
-        }
-
-        .intro h1 {
-          margin: 0;
-          font-size: 32px;
-          font-weight: bold;
-        }
-
-        .intro img {
-          margin-top: 20px;
-          width: 200px;
-          aspect-ratio: 1 / 1;
-          object-fit: cover;
-          border-radius: 50%;
-          box-shadow: 0 0 10px rgba(0,0,0,0.3);
-        }
-
-        .intro h2 {
-          margin-top: 20px;
-          font-weight: normal;
-          font-size: 18px;
-          color: white;
-        }
-
-        .intro audio {
-          margin-top: 15px;
-        }
-
-        .nav-panel {
-          background-color: #0056b3;
-          padding: 20px;
-          text-align: left;
-        }
-
-        .nav-panel ul {
-          list-style: none;
-          margin: 0;
-          padding: 0 20px;
-        }
-
-        .nav-panel li {
-          margin: 10px 0;
-        }
-
-        .nav-panel a {
-          color: white;
-          text-decoration: none;
-          font-weight: bold;
-        }
-
-        .nav-panel a:hover {
-          text-decoration: underline;
-        }
-
-        section {
-          background-color: white;
-          margin: 30px auto;
-          padding: 20px;
-          border-radius: 8px;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-          max-width: 900px;
-        }
-
-        h3 {
-          margin-top: 0;
-          border-bottom: 1px solid #ccc;
-          padding-bottom: 5px;
-        }
-
-        table {
-          width: 100%;
-          border-collapse: collapse;
-          margin-top: 10px;
-          display: block;
-          overflow-x: auto;
-          white-space: nowrap;
-        }
-
-        table, th, td {
-          border: 1px solid #ccc;
-        }
-
-        th {
-          background-color: #007bff;
-          color: white;
-        }
-
-        th, td {
-          padding: 10px;
-          text-align: left;
-        }
-
-        ul, ol {
-          padding-left: 20px;
-        }
-
-        a {
-          color: #007bff;
-        }
-
-        footer {
-          text-align: center;
-          padding: 20px;
-          color: #999;
-          font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-          .intro img {
-            width: 150px;
-          }
-
-          .intro h1 {
-            font-size: 24px;
-          }
-
-          .intro h2 {
-            font-size: 16px;
-          }
-
-          .nav-panel ul {
-            padding: 0 10px;
-          }
-
-          .nav-panel a {
-            font-size: 16px;
-          }
-
-          section {
-            margin: 15px 10px;
-            padding: 15px;
-          }
-
-          table, th, td {
-            font-size: 14px;
-          }
-        }
+        html { scroll-behavior: smooth; }
+        body { position: relative; }
+        section { padding-top: 100px; padding-bottom: 60px; }
+        .navbar-nav .nav-link.active { font-weight: bold; border-bottom: 2px solid #fff; }
+        .hero { background: linear-gradient(135deg, #0069d9 0%, #0056b3 100%); color: #fff; padding: 6rem 0; text-align: center; }
+        .hero img { width: 150px; height: auto; object-fit: cover; border-radius: 50%; box-shadow: 0 0 15px rgba(0,0,0,0.3); }
     </style>
 </head>
-<body>
+<body
+        data-bs-spy="scroll"
+        data-bs-target="#navbarContent"
+        data-bs-offset="80"
+        tabindex="0">
 
-<header>
-    <div class="intro">
-        <h1>Дмитро Мовчан</h1>
-        <img src="dmytro.webp" alt="Моє фото">
-        <h2>Python Developer | AI-EdTech Founder</h2>
-        <audio controls>
+<!-- Navbar -->
+<nav id="navbarContent" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#hero">Leebenslaut</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse" aria-controls="navCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navCollapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
+                <li class="nav-item"><a class="nav-link" href="#values">Vision</a></li>
+                <li class="nav-item"><button class="btn btn-outline-light ms-2" data-bs-toggle="modal" data-bs-target="#demoModal">Demo</button></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero shadow-sm" id="hero">
+    <div class="container">
+        <img src="dmytro.webp" srcset="dmytro.webp 1x, dmytro@2x.webp 2x" alt="Моє фото" class="img-fluid rounded-circle">
+        <h1 class="mt-3">Дмитро Мовчан</h1>
+        <p class="lead">Python Developer | AI-EdTech Founder</p>
+        <audio controls class="mt-2">
             <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
         </audio>
     </div>
+</section>
 
-    <div class="nav-panel">
-        <ul>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#experience">Work Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#languages">Languages</a></li>
-            <li><a href="#values">Values</a></li>
-            <li><a href="#demo">Demo</a></li>
-        </ul>
+<div class="container my-5 shadow p-4 bg-white rounded">
+    <div class="row g-4">
+        <!-- Contact -->
+        <section id="contact" class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white"><i class="bi bi-telephone me-2"></i>Contact</div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="bi bi-geo-alt-fill me-2"></i>Bahnhofstr. 13, 86453 Dasing, DE</li>
+                        <li><i class="bi bi-phone-fill me-2"></i>+4917684143837</li>
+                        <li><i class="bi bi-envelope-fill me-2"></i>0974582854m@gmail.com</li>
+                        <li><i class="bi bi-github me-2"></i><a href="https://github.com/Dmytro-bruno" target="_blank">github.com/Dmytro-bruno</a></li>
+                        <li><i class="bi bi-link-45deg me-2"></i><a href="https://bildmind.com" target="_blank">bildmind.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white"><i class="bi bi-info-circle me-2"></i>About Me</div>
+                <div class="card-body">
+                    <p><strong>Bildmind</strong> — AI-платформа для вивчення мов і соціальної інтеграції з GPT‑помічником, словниковою базою, інтервальним повторенням та EdTech‑функціями.</p>
+                </div>
+            </div>
+        </section>
     </div>
-</header>
 
-<section id="contact">
-    <h3>Contact</h3>
-    <ul>
-        <li><strong>Address:</strong> Bahnhofstr. 13, 86453 Dasing, DE</li>
-        <li><strong>Phone:</strong> +49 176 84143837</li>
-        <li><strong>Email:</strong> 0974582854m@gmail.com</li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/Dmytro-bruno" target="_blank">Dmytro-bruno</a></li>
-        <li><strong>Project:</strong> <a href="https://bildmind.com" target="_blank">bildmind.com</a></li>
-    </ul>
-</section>
+    <div class="row g-4 mt-4">
+        <!-- Experience -->
+        <section id="experience" class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white"><i class="bi bi-briefcase-fill me-2"></i>Work Experience</div>
+                <ul class="list-group list-group-flush p-3">
+                    <li class="list-group-item">
+                        <h6>2022–2023 <span class="badge bg-secondary">Волонтер</span></h6>
+                        <p>Допомога ЗСУ</p>
+                    </li>
+                    <li class="list-group-item">
+                        <h6>2021 <span class="badge bg-secondary">Головний спеціаліст</span></h6>
+                        <p>Гайворонська міськрада</p>
+                    </li>
+                    <li class="list-group-item">
+                        <h6>2020 <span class="badge bg-secondary">Кандидат у депутати</span></h6>
+                        <p>«За Майбутнє»</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-<section id="about">
-    <h3>About Me</h3>
-    <p><strong>Bildmind</strong> — AI-платформа для вивчення мов і соціальної інтеграції. Вона включає GPT-помічника, словникову базу, інтервальне повторення та EdTech-функції.</p>
-</section>
+        <!-- Education -->
+        <section id="education" class="col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white"><i class="bi bi-mortarboard-fill me-2"></i>Education</div>
+                <ul class="list-group list-group-flush p-3">
+                    <li class="list-group-item">
+                        <h6>КНТЕУ <small class="text-muted">2005–2009</small></h6>
+                        <p>Менеджмент</p>
+                    </li>
+                    <li class="list-group-item">
+                        <h6>ВКЕБ <small class="text-muted">2002–2005</small></h6>
+                        <p>Фінанси</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
 
-<section id="demo">
-    <h3>Demo Video</h3>
-    <iframe
-            width="100%"
-            height="315"
-            src="https://www.youtube.com/embed/VXwrGxRmNPw"
-            title="Демонстрація проєкту Bildmind"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-    </iframe>
-</section>
+    <div class="row g-4 mt-4">
+        <!-- Skills -->
+        <section id="skills" class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white"><i class="bi bi-tools me-2"></i>Skills</div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Python</label>
+                        <div class="progress"><div class="progress-bar" role="progressbar" style="width: 90%;">90%</div></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">FastAPI</label>
+                        <div class="progress"><div class="progress-bar" role="progressbar" style="width: 85%">85%</div></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Docker</label>
+                        <div class="progress"><div class="progress-bar" role="progressbar" style="width: 80%">80%</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section id="experience">
-    <h3>Work Experience</h3>
-    <table>
-        <tr><th>Рік</th><th>Посада</th><th>Організація</th></tr>
-        <tr><td>2022–2023</td><td>Волонтер</td><td>Допомога ЗСУ</td></tr>
-        <tr><td>2021</td><td>Головний спеціаліст</td><td>Гайворонська міськрада</td></tr>
-        <tr><td>2020</td><td>Кандидат у депутати</td><td>«За Майбутнє»</td></tr>
-    </table>
-</section>
+        <!-- Languages -->
+        <section id="languages" class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white"><i class="bi bi-translate me-2"></i>Languages</div>
+                <div class="card-body">
+                    <span class="badge bg-success me-1 mb-1">Українська</span>
+                    <span class="badge bg-info me-1 mb-1">Російська</span>
+                    <span class="badge bg-warning text-dark me-1 mb-1">Німецька (B1)</span>
+                </div>
+            </div>
+        </section>
+    </div>
 
-<section id="education">
-    <h3>Education</h3>
-    <table>
-        <tr><th>Заклад</th><th>Спеціальність</th><th>Роки</th></tr>
-        <tr><td>КНТЕУ</td><td>Менеджмент</td><td>2005–2009</td></tr>
-        <tr><td>ВКЕБ</td><td>Фінанси</td><td>2002–2005</td></tr>
-    </table>
-</section>
+    <!-- Vision Accordion -->
+    <div class="row mt-4">
+        <section id="values" class="col">
+            <div class="accordion shadow-sm" id="visionAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingVision">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVision">
+                            My Vision
+                        </button>
+                    </h2>
+                    <div id="collapseVision" class="accordion-collapse collapse show" data-bs-parent="#visionAccordion">
+                        <div class="accordion-body">
+                            Створити інноваційне освітнє середовище, що поєднує ШІ, мотивацію та соціальний вплив.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
 
-<section id="skills">
-    <h3>Skills</h3>
-    <ul>
-        <li>Python, FastAPI, PostgreSQL, Docker</li>
-        <li>GPT-інтеграція, Alembic, REST API</li>
-        <li>MVP-архітектура, EdTech</li>
-    </ul>
-</section>
+<!-- Demo Modal -->
+<div class="modal fade" id="demoModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content shadow-sm">
+            <div class="modal-header">
+                <h5 class="modal-title">Demo Video</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/VXwrGxRmNPw" title="Demo" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<section id="languages">
-    <h3>Languages</h3>
-    <ul>
-        <li>Українська — рідна</li>
-        <li>Російська — вільно</li>
-        <li>Німецька — B1</li>
-    </ul>
-</section>
-
-<section id="values">
-    <h3>My Vision</h3>
-    <p>Створити інноваційне освітнє середовище, що поєднує ШІ, мотивацію та соціальний вплив.</p>
-</section>
-
-<footer>
-    &copy; 2025 Дмитро Мовчан | bildmind.com
+<footer class="bg-light text-center py-3 mt-5 shadow-sm">
+    <small class="text-muted">&copy; 2025 Дмитро Мовчан | <a href="https://bildmind.com">bildmind.com</a></small>
 </footer>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
