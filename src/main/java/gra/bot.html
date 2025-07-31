@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Гра «Вгадай число»</title>
+    <style>
+        body.light { background: #f0f0f0; color: #000; }
+        body.dark { background: #222; color: #fff; }
+        body.neon { background: #000; color: #39ff14; }
+        body.retro { background: #ffefd5; color: #000080; font-family: 'Courier New', monospace; }
+        #game { max-width: 400px; margin: 50px auto; text-align: center; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+        #guessInput { width: 50px; font-size: 1.2em; text-align: center; }
+        #guessBtn { padding: 5px 10px; font-size: 1em; margin-left: 10px; }
+    </style>
+</head>
+<body>
+<div id="game">
+    <h1>Вгадай число</h1>
+    <p id="hint">Введіть число від 0 до 9</p>
+    <input id="guessInput" type="number" min="0" max="9" />
+    <button id="guessBtn">Вгадати</button>
+    <p id="score">Раундів виграно: 0/3</p>
+    <p id="record"></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+    // Випадкова тема
+    const themes = ['light', 'dark', 'neon', 'retro'];
+    document.body.classList.add(themes[Math.floor(Math.random() * themes.length)]);
+
+    // Easter egg: секретний код перед грою
+    const secret = prompt("Якщо знаєте, яке число означають три сокири (III), введіть його, або залиште поле порожнім:");
+    // Приймаємо римське III або арабське 3
+    const GOD_MODE = (secret && (secret.trim().toUpperCase() === '777' || parseInt(secret, 10) === 777));
+
+    // Чекати готовності
+    while (!confirm("Готові почати гру 'Вгадай число: більше чи менше'?")) {}
+
+    const TOTAL_WINS = 3;
+    let wins = 0;
+    let totalAttempts = 0;
+    let bestRecord = localStorage.getItem('bestTries');
+    const recordEl = document.getElementById('record');
+    if (bestRecord) recordEl.textContent = `Ваш рекорд: ${bestRecord} спроб`;
+
+    function updateScore() {
+      document.getElementById('score').textContent = `Раундів виграно: ${wins}/${TOTAL_WINS}`;
+    }
+
+    function newRound() {
+      let target = Math.floor(Math.random() * 10);
+      if (GOD_MODE) {
+        hintEl.textContent = `Таємне число: ${target}`;
+        setTimeout(() => hintEl.textContent = 'Введіть число від 0 до 9', 1000);
+      }
+      guessBtn.disabled = false;
+
+      function handleGuess() {
+        const val = parseInt(guessInput.value, 10);
+        totalAttempts++;
+        if (isNaN(val) || val < 0 || val > 9) {
+          hintEl.textContent = 'Введіть ціле число 0–9!';
+        } else if (val < target) {
+          hintEl.textContent = 'Моє число більше!';
+        } else if (val > target) {
+          hintEl.textContent = 'Моє число менше!';
+        } else {
+          wins++;
+          confetti({ particleCount: 100, spread: 70 });
+          updateScore();
+          if (wins < TOTAL_WINS) {
+            hintEl.textContent = `Вірно! Рухаємо далі.`;
+            setTimeout(() => prepareRound(), 1000);
+          } else {
+            hintEl.textContent = `Вітаю! Ви виграли гру за ${totalAttempts} спроб.`;
+            // Оновити рекорд
+            if (!bestRecord || totalAttempts < bestRecord) {
+              localStorage.setItem('bestTries', totalAttempts);
+              recordEl.textContent = `Новий рекорд: ${totalAttempts} спроб!`;
+            }
+            guessBtn.disabled = true;
+          }
+        }
+      }
+
+      guessBtn.onclick = handleGuess;
+    }
+
+    function prepareRound() {
+      guessInput.value = '';
+      hintEl.textContent = 'Введіть число від 0 до 9';
+      newRound();
+    }
+
+    const guessInput = document.getElementById('guessInput');
+    const guessBtn = document.getElementById('guessBtn');
+    const hintEl = document.getElementById('hint');
+
+    updateScore();
+    prepareRound();
+</script>
+</body>
+</html>
