@@ -5,50 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Шпаргалка DOM — Дзеркало</title>
 
-    <!-- 🔗 Підключення Bootstrap 5 -->
+    <!-- 🔗 Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- 🎨 Стилі з ефектами -->
+    <!-- 🎨 Стилі -->
     <style>
         body {
           background: linear-gradient(to right, #f8f9fa, #e0f7fa);
         }
 
-        #image {
+        .image-wrapper {
+          position: relative;
+          display: inline-block;
+          border-radius: 0.5rem;
           transition: all 0.5s ease;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-wrapper.mirror img {
+          transform: scaleX(-1);
+          filter: brightness(1.1) contrast(1.05);
           position: relative;
           z-index: 1;
         }
 
-        #image:hover {
-          transform: scale(1.03);
-          box-shadow: 0 8px 30px rgba(0, 123, 255, 0.4);
-        }
-
-        #image.mirror {
-          transform: scaleX(-1);
-          filter: brightness(1.1) contrast(1.05);
-          box-shadow:
-            inset 0 0 12px rgba(255, 255, 255, 0.3),
-            0 0 30px rgba(0, 0, 0, 0.2);
-        }
-
-        /* 🪞 Псевдоелемент для створення ефекту “дзеркала в дзеркалі” */
-        #image.mirror::after {
+        .image-wrapper.mirror::after {
           content: "";
           position: absolute;
           top: 10%;
           left: 10%;
           width: 80%;
           height: 80%;
-          background-image: inherit;
+          background-image: var(--mirror-bg);
           background-size: cover;
           background-position: center;
           opacity: 0.2;
           filter: blur(4px);
           transform: scaleX(-1);
-          z-index: -1;
+          z-index: 0;
+          border-radius: 0.5rem;
+        }
+
+        #image {
+          transition: all 0.5s ease;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+        }
+
+        #image:hover {
+          transform: scale(1.03);
+          box-shadow: 0 8px 30px rgba(0, 123, 255, 0.4);
         }
 
         #title {
@@ -84,16 +89,17 @@
         <button id="update-description-btn" class="btn btn-success">Оновити опис</button>
     </div>
 
-    <!-- 🖼️ Зображення -->
+    <!-- 🖼️ Зображення обгорнуте для дзеркального ефекту -->
     <div class="d-flex justify-content-center mb-4">
-        <img
-                id="image"
-                src="img69.png"
-                class="rounded"
-                alt="Заповнювач"
-                width="300"
-                style="cursor: pointer;"
-        >
+        <div class="image-wrapper" id="image-wrapper">
+            <img
+                    id="image"
+                    src="img69.png"
+                    class="rounded"
+                    alt="Заповнювач"
+                    width="300"
+            >
+        </div>
     </div>
 
     <!-- 📝 Опис -->
@@ -104,32 +110,47 @@
 
 <!-- 🔧 JavaScript -->
 <script>
+    const title = document.querySelector("#title");
+    const img = document.querySelector("#image");
+    const wrapper = document.querySelector("#image-wrapper");
+    const description = document.querySelector("#description");
+
     // 🟦 Зміна заголовка
     document.querySelector("#change-text-btn").addEventListener("click", function () {
-      const title = document.querySelector("#title");
       title.innerHTML = "Заголовок змінено JavaScript!";
       title.classList.toggle("changed");
     });
 
     // 🖼️ Перемикання зображення
-    document.querySelector("#image").addEventListener("click", function () {
-      const img = this;
+    img.addEventListener("click", function () {
       const currentSrc = img.getAttribute("src");
       const newSrc = currentSrc === "img69.png"
         ? "img696.png"
         : "img69.png";
+
       img.setAttribute("src", newSrc);
+
+      // Якщо дзеркало активне — оновити фонове зображення
+      if (wrapper.classList.contains("mirror")) {
+        wrapper.style.setProperty("--mirror-bg", `url('${newSrc}')`);
+      }
     });
 
-    // 🪞 Перемикання дзеркального ефекту
+    // 🪞 Дзеркальний ефект
     document.querySelector("#toggle-image-btn").addEventListener("click", function () {
-      const img = document.querySelector("#image");
-      img.classList.toggle("mirror");
+      wrapper.classList.toggle("mirror");
+
+      if (wrapper.classList.contains("mirror")) {
+        const src = img.getAttribute("src");
+        wrapper.style.setProperty("--mirror-bg", `url('${src}')`);
+      } else {
+        wrapper.style.removeProperty("--mirror-bg");
+      }
     });
 
     // 📝 Оновлення опису
     document.querySelector("#update-description-btn").addEventListener("click", function () {
-      document.querySelector("#description").innerHTML = "Опис оновлено за допомогою JavaScript. Ви створили дзеркальний ефект!";
+      description.innerHTML = "Опис оновлено за допомогою JavaScript. Ви створили дзеркальний ефект!";
     });
 </script>
 
