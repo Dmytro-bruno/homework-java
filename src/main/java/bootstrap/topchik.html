@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Шпаргалка DOM — Дзеркало</title>
+
+    <!-- 🔗 Підключення Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 🎨 Стилі з ефектами -->
+    <style>
+        body {
+          background: linear-gradient(to right, #f8f9fa, #e0f7fa);
+        }
+
+        #image {
+          transition: all 0.5s ease;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          position: relative;
+          z-index: 1;
+        }
+
+        #image:hover {
+          transform: scale(1.03);
+          box-shadow: 0 8px 30px rgba(0, 123, 255, 0.4);
+        }
+
+        #image.mirror {
+          transform: scaleX(-1);
+          filter: brightness(1.1) contrast(1.05);
+          box-shadow:
+            inset 0 0 12px rgba(255, 255, 255, 0.3),
+            0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 🪞 Псевдоелемент для створення ефекту “дзеркала в дзеркалі” */
+        #image.mirror::after {
+          content: "";
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          width: 80%;
+          height: 80%;
+          background-image: inherit;
+          background-size: cover;
+          background-position: center;
+          opacity: 0.2;
+          filter: blur(4px);
+          transform: scaleX(-1);
+          z-index: -1;
+        }
+
+        #title {
+          color: #0d6efd;
+          transition: color 0.3s ease;
+        }
+
+        #title.changed {
+          color: #198754;
+        }
+
+        button {
+          transition: transform 0.2s ease;
+        }
+
+        button:hover {
+          transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<!-- 🔲 Основний контейнер -->
+<div class="container py-5" id="app-container">
+
+    <!-- 🟦 Заголовок -->
+    <h1 id="title" class="mb-4 text-center">Ласкаво просимо до маніпуляції DOM!</h1>
+
+    <!-- 🟢 Кнопки -->
+    <div class="d-flex justify-content-center mb-4 flex-wrap gap-2">
+        <button id="change-text-btn" class="btn btn-primary">Змінити заголовок</button>
+        <button id="toggle-image-btn" class="btn btn-outline-primary">Перемкнути стиль зображення</button>
+        <button id="update-description-btn" class="btn btn-success">Оновити опис</button>
+    </div>
+
+    <!-- 🖼️ Зображення -->
+    <div class="d-flex justify-content-center mb-4">
+        <img
+                id="image"
+                src="img69.png"
+                class="rounded"
+                alt="Заповнювач"
+                width="300"
+                style="cursor: pointer;"
+        >
+    </div>
+
+    <!-- 📝 Опис -->
+    <p id="description" class="text-center fs-5">
+        Це початковий опис для прикладу маніпуляції DOM.
+    </p>
+</div>
+
+<!-- 🔧 JavaScript -->
+<script>
+    // 🟦 Зміна заголовка
+    document.querySelector("#change-text-btn").addEventListener("click", function () {
+      const title = document.querySelector("#title");
+      title.innerHTML = "Заголовок змінено JavaScript!";
+      title.classList.toggle("changed");
+    });
+
+    // 🖼️ Перемикання зображення
+    document.querySelector("#image").addEventListener("click", function () {
+      const img = this;
+      const currentSrc = img.getAttribute("src");
+      const newSrc = currentSrc === "img69.png"
+        ? "img696.png"
+        : "img69.png";
+      img.setAttribute("src", newSrc);
+    });
+
+    // 🪞 Перемикання дзеркального ефекту
+    document.querySelector("#toggle-image-btn").addEventListener("click", function () {
+      const img = document.querySelector("#image");
+      img.classList.toggle("mirror");
+    });
+
+    // 📝 Оновлення опису
+    document.querySelector("#update-description-btn").addEventListener("click", function () {
+      document.querySelector("#description").innerHTML = "Опис оновлено за допомогою JavaScript. Ви створили дзеркальний ефект!";
+    });
+</script>
+
+</body>
+</html>
